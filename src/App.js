@@ -16,6 +16,12 @@ function App() {
 
   useEffect(() => {
     loadCharacters(8, page * 8)
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
   }, [page])
 
   async function loadCharacters(limit, offset) {
@@ -36,8 +42,6 @@ function App() {
 
   useEffect(() => {
     const filter = allCharacters.filter((char) => char.name.toLowerCase().indexOf(search) !== -1)
-
-    console.log(search === '', filteredCharacters)
 
     setFilteredCharacters(filter)
   }, [search])
