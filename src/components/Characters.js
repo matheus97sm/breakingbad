@@ -7,6 +7,8 @@ export default function Characters(props) {
 
   useEffect(() => {
     setCharacters(props.characters)
+
+    console.log(characters)
   }, [props])
 
   return (
@@ -19,6 +21,12 @@ export default function Characters(props) {
                 <li key={char.char_id}>
                   <div className="char-img">
                     <img src={char.img} alt={char.name} />
+
+                    {
+                      char.status === 'Alive' ? (
+                        <div className="status alive">Vivo</div>
+                      ) : <div className="status dead">Morto</div>
+                    }
                   </div>
                   <div className="char-txt">
                     <strong>{char.name}</strong>
